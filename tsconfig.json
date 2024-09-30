@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES6",
+    "lib": ["ES2015"],
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  }
+}

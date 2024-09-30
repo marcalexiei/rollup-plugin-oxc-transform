@@ -1,0 +1,59 @@
+{
+  "name": "rollup-plugin-oxc-transform",
+  "version": "0.1.0",
+  "description": "Transpile JavaScript/TypeScript code with oxc",
+  "engines": {
+    "node": "^18 || ^20 || ^22"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.js"
+  },
+  "homepage": "https://github.com/marcalexiei/rollup-plugin-oxc-transform/",
+  "bugs": {
+    "url": "https://github.com/marcalexiei/rollup-plugin-oxc-transform/issues"
+  },
+  "keywords": [
+    "rollup",
+    "plugin",
+    "oxc",
+    "npm",
+    "modules"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "Marco Pasqualetti @marcalexiei",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcalexiei/rollup-plugin-oxc-transform.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "ava"
+  },
+  "peerDependencies": {
+    "oxc-transform": "^0.30.5",
+    "rollup": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "rollup": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@rollup/pluginutils": "^5.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "12.1.0",
+    "@types/node": "20",
+    "oxc-transform": "0.30.5",
+    "rollup": "4.24.0",
+    "typescript": "5.5.4"
+  },
+  "packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b"
+}
