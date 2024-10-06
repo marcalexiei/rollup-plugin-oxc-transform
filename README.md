@@ -1,4 +1,4 @@
-# @rollup/plugin-swc
+# rollup-plugin-oxc-transform
 
 🍣 A Rollup plugin to transpile TypeScript/JavaScript with oxc-transformer.
 
