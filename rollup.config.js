@@ -1,4 +1,4 @@
-import { promises as fs } from "node:fs";
+import fs from "node:fs/promises";
 
 import { defineConfig } from "rollup";
 import typescript from "@rollup/plugin-typescript";
