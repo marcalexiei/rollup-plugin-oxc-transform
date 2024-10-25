@@ -1,49 +1,43 @@
 import test from "ava";
 import { rollup } from "rollup";
+import type { InputOption, ModuleFormat } from "rollup";
 
 import { oxcTransform } from "../src/index";
 
-test.serial("ESM output for default export", async (t) => {
-  const bundle = await rollup({
-    input: "tests/fixtures/basic/export-default.js",
-    plugins: [oxcTransform()],
-  });
+const generateMacro = test.macro<
+  [{ input: InputOption; format: ModuleFormat }]
+>({
+  async exec(t, { input, format }) {
+    const bundle = await rollup({
+      input,
+      plugins: [oxcTransform()],
+    });
 
-  const result = await bundle.generate({ format: "esm" });
+    const result = await bundle.generate({ format });
 
-  t.is(result.output.length, 1);
-  const [output] = result.output;
-  t.snapshot(output.code);
+    t.is(result.output.length, 1);
+    const [output] = result.output;
+    t.snapshot(output.code);
+  },
+  title(providedTitle, { format }) {
+    return `Generate bundle "${providedTitle}" with output set to "${format}"`;
+  },
 });
 
-test.serial("CJS output for default export", async (t) => {
-  const bundle = await rollup({
-    input: "tests/fixtures/basic/export-default.js",
-    plugins: [oxcTransform()],
-  });
-
-  const result = await bundle.generate({ format: "cjs" });
-
-  t.is(result.output.length, 1);
-  const [output] = result.output;
-  t.snapshot(output.code);
+test("JS - basic", generateMacro, {
+  input: "tests/fixtures/basic/export-default.js",
+  format: "esm",
+});
+test("JS - basic", generateMacro, {
+  input: "tests/fixtures/basic/export-default.js",
+  format: "cjs",
 });
 
-test.serial.only("should emit declaration if they are available", async (t) => {
-  const bundle = await rollup({
-    input: "tests/fixtures/typescript/index.ts",
-    plugins: [
-      oxcTransform({
-        transformOptions: {
-          typescript: {
-            onlyRemoveTypeImports: true,
-            declaration: { stripInternal: true },
-          },
-        },
-      }),
-    ],
-  });
-
-  const result = await bundle.generate({});
-  t.is(result.output.length, 1);
+test("TS - basic", generateMacro, {
+  input: "tests/fixtures/typescript/index.ts",
+  format: "esm",
+});
+test("TS - basic", generateMacro, {
+  input: "tests/fixtures/typescript/index.ts",
+  format: "cjs",
 });
