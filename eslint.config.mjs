@@ -5,7 +5,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['dist'],
+    ignores: ['dist', '.tsimp', 'tests/fixtures'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
@@ -17,7 +17,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['**/*.js'],
+    files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
   },
 );

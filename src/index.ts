@@ -1,3 +1,3 @@
-export type { Options } from "./options";
+export type { Options } from './options';
 
-export { oxcTransform } from "./oxcTransform";
+export { oxcTransform } from './oxcTransform';

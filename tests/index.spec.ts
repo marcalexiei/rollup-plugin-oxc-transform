@@ -1,8 +1,8 @@
-import test from "ava";
-import { rollup } from "rollup";
-import type { InputOption, ModuleFormat } from "rollup";
+import test from 'ava';
+import { rollup } from 'rollup';
+import type { InputOption, ModuleFormat } from 'rollup';
 
-import { oxcTransform } from "../src/index";
+import { oxcTransform } from '../src/index';
 
 const generateMacro = test.macro<
   [{ input: InputOption; format: ModuleFormat }]
@@ -20,24 +20,24 @@ const generateMacro = test.macro<
     t.snapshot(output.code);
   },
   title(providedTitle, { format }) {
-    return `Generate bundle "${providedTitle}" with output set to "${format}"`;
+    return `Generate bundle "${providedTitle as string}" with output set to "${format}"`;
   },
 });
 
-test("JS - basic", generateMacro, {
-  input: "tests/fixtures/basic/export-default.js",
-  format: "esm",
+test('JS - basic', generateMacro, {
+  input: 'tests/fixtures/basic/export-default.js',
+  format: 'esm',
 });
-test("JS - basic", generateMacro, {
-  input: "tests/fixtures/basic/export-default.js",
-  format: "cjs",
+test('JS - basic', generateMacro, {
+  input: 'tests/fixtures/basic/export-default.js',
+  format: 'cjs',
 });
 
-test("TS - basic", generateMacro, {
-  input: "tests/fixtures/typescript/index.ts",
-  format: "esm",
+test('TS - basic', generateMacro, {
+  input: 'tests/fixtures/typescript/index.ts',
+  format: 'esm',
 });
-test("TS - basic", generateMacro, {
-  input: "tests/fixtures/typescript/index.ts",
-  format: "cjs",
+test('TS - basic', generateMacro, {
+  input: 'tests/fixtures/typescript/index.ts',
+  format: 'cjs',
 });
