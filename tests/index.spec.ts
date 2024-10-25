@@ -28,3 +28,22 @@ test.serial("CJS output for default export", async (t) => {
   const [output] = result.output;
   t.snapshot(output.code);
 });
+
+test.serial.only("should emit declaration if they are available", async (t) => {
+  const bundle = await rollup({
+    input: "tests/fixtures/typescript/index.ts",
+    plugins: [
+      oxcTransform({
+        transformOptions: {
+          typescript: {
+            onlyRemoveTypeImports: true,
+            declaration: { stripInternal: true },
+          },
+        },
+      }),
+    ],
+  });
+
+  const result = await bundle.generate({});
+  t.is(result.output.length, 1);
+});

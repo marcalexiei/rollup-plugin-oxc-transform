@@ -5,6 +5,9 @@
 > [!WARNING]
 > Work in progress
 
+> [!TIP]
+> If you need to generate declarations consider to use [unplugin-isolated-decl](https://github.com/unplugin/unplugin-isolated-decl)
+
 ## Install
 
 todo
