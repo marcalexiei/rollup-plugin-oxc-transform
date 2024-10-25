@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "name": "repo-base-typescript",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "engines": {
+    "node": ">= 20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://marcalexiei@github.com/marcalexiei/repo-base-typescript.git"
+  },
+  "author": "Marco Pasqualetti @marcalexiei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcalexiei/repo-base-typescript/issues"
+  },
+  "homepage": "https://github.com/marcalexiei/repo-base-typescript#readme",
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
+  "scripts": {
+    "prepare": "husky",
+    "build": "tsc --project tsconfig.build.json",
+    "typecheck": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "check-all": "pnpm run \"/^(lint|format|test|typecheck|build)$/\""
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
+    "@eslint/js": "9.12.0",
+    "@types/eslint__js": "8.42.3",
+    "eslint": "9.12.0",
+    "husky": "9.1.6",
+    "prettier": "3.3.3",
+    "typescript": "5.6.3",
+    "typescript-eslint": "8.10.0"
+  }
+}
