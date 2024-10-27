@@ -15,6 +15,9 @@ importers:
       '@eslint/js':
         specifier: 9.13.0
         version: 9.13.0
+      '@marcalexiei/prettier-config':
+        specifier: 1.0.4
+        version: 1.0.4(prettier@3.3.3)
       '@rollup/plugin-typescript':
         specifier: 12.1.1
         version: 12.1.1(rollup@4.24.0)(tslib@2.8.0)(typescript@5.6.3)
@@ -129,6 +132,12 @@ packages:
   '@mapbox/node-pre-gyp@1.0.11':
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
+
+  '@marcalexiei/prettier-config@1.0.4':
+    resolution: {integrity: sha512-CMSAADRuQMqCJ4ShCpPUQVqI1M0DRk5zUgqLHfMEDHM+YiZyYcT2Xhvmo43BH3u74+Y/5XZBFbbH4MV+rmj1Ag==}
+    engines: {node: '>= 20'}
+    peerDependencies:
+      prettier: ^2.8.0 || ^3.0.0
 
   '@napi-rs/wasm-runtime@0.2.5':
     resolution: {integrity: sha512-kwUxR7J9WLutBbulqg1dfOrMTwhMdXLdcGUhcbCcGwnPLt3gz19uHVdwH1syKVDbE022ZS2vZxOWflFLS0YTjw==}
@@ -1563,6 +1572,10 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@marcalexiei/prettier-config@1.0.4(prettier@3.3.3)':
+    dependencies:
+      prettier: 3.3.3
 
   '@napi-rs/wasm-runtime@0.2.5':
     dependencies:
