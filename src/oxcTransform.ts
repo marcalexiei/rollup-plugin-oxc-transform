@@ -11,7 +11,9 @@ const INCLUDE_DEFAULT = /\.[mc]?[jt]sx?$/;
 const EXCLUDE_DEFAULT = /node_modules/;
 const EXTENSIONS_DEFAULT = ['.ts', '.tsx', '.mjs', '.js', '.cjs', '.jsx'];
 
+const PLUGIN_ERROR_RESOLVE = 'ERR_RESOLVE';
 const PLUGIN_ERROR_TRANSFORM = 'ERR_TRANSFORM';
+
 export function oxcTransform(options: Options = {}): Plugin {
   const {
     include = INCLUDE_DEFAULT,
@@ -38,7 +40,13 @@ export function oxcTransform(options: Options = {}): Plugin {
         );
 
         if (resolverResult.error) {
-          return this.error(resolverResult.error);
+          return this.error({
+            pluginCode: PLUGIN_ERROR_RESOLVE,
+            // id is the file where the error is,
+            // which in the following scenario is the importer
+            id: importer,
+            message: resolverResult.error,
+          });
         }
 
         return resolverResult.path;
