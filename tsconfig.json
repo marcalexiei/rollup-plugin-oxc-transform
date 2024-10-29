@@ -1,9 +1,10 @@
 {
+  /** @see https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping */
   "compilerOptions": {
+    "lib": ["ES2023"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "target": "ES6",
-    "lib": ["ES2015"],
+    "target": "ES2022",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
