@@ -11,6 +11,7 @@ const INCLUDE_DEFAULT = /\.[mc]?[jt]sx?$/;
 const EXCLUDE_DEFAULT = /node_modules/;
 const EXTENSIONS_DEFAULT = ['.ts', '.tsx', '.mjs', '.js', '.cjs', '.jsx'];
 
+const PLUGIN_ERROR_TRANSFORM = 'ERR_TRANSFORM';
 export function oxcTransform(options: Options = {}): Plugin {
   const {
     include = INCLUDE_DEFAULT,
@@ -51,6 +52,15 @@ export function oxcTransform(options: Options = {}): Plugin {
         ...transformOptions,
         sourcemap: true,
       });
+
+      if (transformResult.errors.length > 0) {
+        return this.error({
+          pluginCode: PLUGIN_ERROR_TRANSFORM,
+          message: ['\ntransform errors:', ...transformResult.errors].join(
+            '\n\n',
+          ),
+        });
+      }
 
       return transformResult;
     },
