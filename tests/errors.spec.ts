@@ -1,7 +1,7 @@
 import test from 'ava';
 import { rollup } from 'rollup';
 import type { RollupError } from 'rollup';
-import { oxcTransform } from '../src/index';
+import { oxcTransform } from '../src/index.js';
 
 /**
  * Remove current process CWD from the input string.

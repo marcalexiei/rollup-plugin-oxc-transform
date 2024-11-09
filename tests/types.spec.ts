@@ -1,4 +1,4 @@
-import { oxcTransform } from '../src/index';
+import { oxcTransform } from '../src/index.js';
 
 oxcTransform();
 

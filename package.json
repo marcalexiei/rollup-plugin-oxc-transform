@@ -2,6 +2,7 @@
   "name": "rollup-plugin-oxc-transform",
   "version": "0.0.3",
   "description": "Rollup plugin used to transpile JavaScript/TypeScript code with oxc",
+  "type": "module",
   "publishConfig": {
     "access": "public"
   },
@@ -62,6 +63,7 @@
     "@rollup/pluginutils": "^5.1.3"
   },
   "devDependencies": {
+    "@ava/typescript": "5.0.0",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.9",
     "@commitlint/cli": "19.5.0",
@@ -78,7 +80,6 @@
     "oxc-transform": "0.35.0",
     "prettier": "3.3.3",
     "rollup": "4.25.0",
-    "tsimp": "2.0.12",
     "tslib": "2.8.1",
     "typescript": "5.6.3",
     "typescript-eslint": "8.13.0"
@@ -90,12 +91,13 @@
       "./tests/*.spec.ts",
       "!./tests/types.spec.ts"
     ],
-    "extensions": {
-      "ts": "module"
-    },
-    "nodeArguments": [
-      "--import=tsimp"
-    ],
-    "snapshotDir": "./tests/__snapshots/"
+    "snapshotDir": "./tests/__snapshots/",
+    "typescript": {
+      "compile": "tsc",
+      "rewritePaths": {
+        "src/": "dist-test/src/",
+        "tests/": "dist-test/tests/"
+      }
+    }
   }
 }
