@@ -5,7 +5,7 @@ import { createFilter } from '@rollup/pluginutils';
 import { transform } from 'oxc-transform';
 import { ResolverFactory } from 'oxc-resolver';
 
-import type { Options } from './options';
+import type { Options } from './options.js';
 
 const INCLUDE_DEFAULT = /\.[mc]?[jt]sx?$/;
 const EXCLUDE_DEFAULT = /node_modules/;

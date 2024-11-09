@@ -2,7 +2,7 @@ import test from 'ava';
 import { rollup } from 'rollup';
 import type { InputOption, ModuleFormat } from 'rollup';
 
-import { oxcTransform } from '../src/index';
+import { oxcTransform } from '../src/index.js';
 
 const generateMacro = test.macro<
   [{ input: InputOption; format: ModuleFormat }]

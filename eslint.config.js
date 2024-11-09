@@ -5,7 +5,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['dist', '.tsimp', 'tests/fixtures'],
+    ignores: ['dist', 'dist-test', 'tests/fixtures'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
