@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-oxc-transform",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Rollup plugin used to transpile JavaScript/TypeScript code with oxc",
   "publishConfig": {
     "access": "public"
