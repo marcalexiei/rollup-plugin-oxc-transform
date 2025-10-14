@@ -1,11 +1,23 @@
 # rollup-plugin-oxc-transform
 
-[![CI](https://github.com/marcalexiei/rollup-plugin-oxc-transform/actions/workflows/CI.yml/badge.svg)](https://github.com/marcalexiei/rollup-plugin-oxc-transform/actions/workflows/CI.yml)
-[![Code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://prettier.io)
-[![npm version](https://img.shields.io/npm/v/rollup-plugin-oxc-transform.svg?style=flat-square)](https://www.npmjs.com/package/rollup-plugin-oxc-transform)
-[![issues](https://img.shields.io/github/issues/marcalexiei/rollup-plugin-oxc-transform.svg)](https://github.com/marcalexiei/rollup-plugin-oxc-transform/issues)
+[![CI][CIBadge]][CIURL]
+[![Code style: prettier][CodeStyleBadge]][CodeStyleURL]
+[![Lint: eslint][lintBadge]][lintURL]
+[![npm version][npmVersionBadge]][npmVersionURL]
+[![issues][issuesBadge]][issuesURL]
 
-🍣 A Rollup plugin to transpile TypeScript/JavaScript with oxc-transformer.
+[CIBadge]: https://img.shields.io/github/actions/workflow/status/marcalexiei/rollup-plugin-oxc-transform/ci.yml?style=for-the-badge&logo=github&event=push&label=CI
+[CIURL]: https://github.com/marcalexiei/rollup-plugin-oxc-transform/actions/workflows/CI.yml/badge.svg
+[CodeStyleBadge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge&logo=prettier
+[CodeStyleURL]: https://prettier.io
+[npmVersionBadge]: https://img.shields.io/npm/v/rollup-plugin-oxc-transform.svg?style=for-the-badge&logo=npm
+[npmVersionURL]: https://www.npmjs.com/package/rollup-plugin-oxc-transform
+[lintBadge]: https://img.shields.io/badge/lint-eslint-3A33D1?logo=eslint&style=for-the-badge
+[lintURL]: https://eslint.org
+[issuesBadge]: https://img.shields.io/github/issues/marcalexiei/rollup-plugin-oxc-transform.svg?style=for-the-badge
+[issuesURL]: https://github.com/marcalexiei/rollup-plugin-oxc-transform/issues
+
+🍣 A [Rollup](https://rollupjs.org) plugin to transpile TypeScript/JavaScript with [oxc-transformer](https://oxc.rs/docs/guide/usage/transformer.html).
 
 > [!WARNING]
 > Work in progress

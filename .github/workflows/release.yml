@@ -8,10 +8,7 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-permissions:
-  contents: write
-  pull-requests: write
-  id-token: write # added for provenance
+permissions: {}
 
 env:
   HUSKY: 0
@@ -22,14 +19,31 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write # Required for OIDC (Trusted publishing)
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Setup release helper
+        uses: marcalexiei/github-actions/.github/actions/setup-github-app-user-bot@main
+        id: release-helper
         with:
-          fetch-depth: 0
+          app-id: ${{ vars.RELEASE_HELPER_APP_ID }}
+          private-key: ${{ secrets.RELEASE_HELPER_PRIVATE_KEY }}
+
+      - name: Configure git user for GitHub App
+        run: |
+          git config --global user.name '${{ steps.release-helper.outputs.bot-name }}'
+          git config --global user.email '${{ steps.release-helper.outputs.bot-email }}'
+
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
 
       - name: Install Dependencies
-        uses: ./.github/actions/install-dependencies
+        uses: marcalexiei/github-actions/.github/actions/setup-node-and-pnpm@main
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
@@ -38,10 +52,9 @@ jobs:
           commit: 'chore: release'
           title: 'chore: release'
           publish: 'pnpm release'
+          setupGitUser: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
+          GITHUB_TOKEN: ${{ steps.release-helper.outputs.token }}
 
   on-ci-fail:
     name: 'Failure'
