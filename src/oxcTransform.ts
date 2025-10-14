@@ -64,9 +64,11 @@ export function oxcTransform(options: Options = {}): Plugin {
       if (transformResult.errors.length > 0) {
         return this.error({
           pluginCode: PLUGIN_ERROR_TRANSFORM,
-          message: ['\ntransform errors:', ...transformResult.errors].join(
-            '\n\n',
-          ),
+
+          message: [
+            '\ntransform errors:',
+            ...transformResult.errors.map((it) => it.codeframe),
+          ].join('\n\n'),
         });
       }
 
