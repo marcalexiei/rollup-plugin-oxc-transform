@@ -7,7 +7,7 @@
     "access": "public"
   },
   "engines": {
-    "node": "^18 || ^20 || ^22 || ^24"
+    "node": "^20 || ^22 || ^24"
   },
   "module": "./dist/index.mjs",
   "main": "./dist/index.cjs",
